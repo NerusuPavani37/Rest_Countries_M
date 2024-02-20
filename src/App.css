@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+
+:root {
+  --Dark-Blue: hsl(209, 23%, 22%);
+  --Very-Dark-Blue: hsl(207, 26%, 17%);
+  --Light-Mode-Text: hsl(200, 15%, 8%);
+  --Dark-Gray: hsl(0, 0%, 52%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --White: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--Very-Light-Gray);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--White);
+  color: black;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mode {
+  font-weight: 600;
+  display: flex;
+}
+
+.mode:hover{
+cursor: pointer;
+}
+
+header ion-icon {
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  height: 9rem;
+}
+.search-container {
+  display: flex;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: var(--White);
+  border:1px solid #eee;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  border: none;
+  font-size: large;
+  width: 80%;
+}
+.search-input:focus,.filter-select:focus,.filter-subregion:focus,
+.sort-container:focus{
+  outline: none;
+}
+
+.search ion-icon {
+  font-size: 2rem;
+  color: gray;
+  padding: 0 3rem;
+}
+
+.filter,.subregion-filter,.sort{
+  margin-left: 3rem;
+  width: 70%;
+  background-color: var(--White);
+  border:1px solid #eee;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  justify-content:center;
+  position: relative;
+}
+
+.filter-select,.filter-subregion,.sort-container{
+  padding: 1rem;
+  border: none;
+  background-color: var(--White);
+  font-size: 12px;
+  width:max-content;
+}
+
+.countries{
+ margin: 3rem;
+ display: flex;
+ flex-direction: column;
+}
+.country {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  background-color: var(--White);
+  border:1px solid #eee;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+
+.country-image {
+  width: 100%; 
+  height: auto; 
+}
+
+
+.country-details {
+  padding-left: 2rem;
+}
+
+/* dark mode */
+
+body.dark-mode{
+  background-color: var(--Very-Dark-Blue);
+}
+
+.header.dark-mode{
+  background-color: var(--Dark-Blue);
+  color: #eee;
+  border-bottom: 1px solid #333;
+}
+
+.search-container.dark-mode,
+.country.country-dark,
+.filter.filter-dark,.sort.dark-mode,
+.subregion-filter.dark-mode{
+  background-color: var(--Dark-Blue);
+  color: #eee;
+  border: 1px solid #333;
+}
+.search-input.dark-mode,
+.filter-select.filter-select-dark,
+.sort-container.dark-mode,
+.filter-subregion.dark-mode{ 
+  background-color: var(--Dark-Blue);
+  color: #eee;
+}
