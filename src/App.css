@@ -32,8 +32,8 @@ header {
   display: flex;
 }
 
-.mode:hover{
-cursor: pointer;
+.mode:hover {
+  cursor: pointer;
 }
 
 header ion-icon {
@@ -45,14 +45,13 @@ header ion-icon {
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
-  height: 9rem;
 }
 .search-container {
   display: flex;
   padding: 1rem;
   border-radius: 5px;
   background-color: var(--White);
-  border:1px solid #eee;
+  border: 1px solid #eee;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -61,8 +60,10 @@ header ion-icon {
   font-size: large;
   width: 80%;
 }
-.search-input:focus,.filter-select:focus,.filter-subregion:focus,
-.sort-container:focus{
+.search-input:focus,
+.filter-select:focus,
+.filter-subregion:focus,
+.sort-container:focus {
   outline: none;
 }
 
@@ -72,59 +73,125 @@ header ion-icon {
   padding: 0 3rem;
 }
 
-.filter,.subregion-filter,.sort{
-  margin-left: 3rem;
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter,
+.subregion-filter,
+.sort {
   width: 70%;
   background-color: var(--White);
-  border:1px solid #eee;
+  border: 1px solid #eee;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   position: relative;
 }
 
-.filter-select,.filter-subregion,.sort-container{
+.filter-select,
+.filter-subregion,
+.sort-container {
   padding: 1rem;
   border: none;
   background-color: var(--White);
   font-size: 12px;
-  width:max-content;
+  width: max-content;
 }
 
-.countries{
- margin: 3rem;
- display: flex;
- flex-direction: column;
+.countries {
+  margin: 3rem;
+  width: auto;
+  display: flex;
+  flex-direction: column;
 }
 .country {
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
   background-color: var(--White);
-  border:1px solid #eee;
+  border: 1px solid #eee;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
-
-.country-image {
-  width: 100%; 
-  height: auto; 
+.custom-link {
+  text-decoration: none;
+  color: #333;
 }
-
+.country-image {
+  aspect-ratio: 16/9;
+  width: 100%;
+  object-fit: cover;
+}
 
 .country-details {
   padding-left: 2rem;
 }
 
+/* Deatil-page styling */
+
+.detail-container {
+  background-color: var(--White);
+  margin: 1.5rem;
+  border: 1px solid #eee;
+}
+
+.backBtn {
+  margin: 3rem;
+}
+.backBtn button {
+  cursor: pointer;
+  padding: 0.4rem 2rem;
+  background-color: var(--White);
+  border: 1px solid #eee;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details-div {
+  margin: 2rem;
+}
+
+.details-div img {
+  width: 100%;
+  height: auto;
+}
+
+.details-div span {
+  font-weight: 100;
+}
+
+.country-detail {
+  padding: 0;
+}
+
+.details,
+.more-details {
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.border-countries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.border-countries div {
+  background-color: var(--White);
+  border: 1px solid #eee;
+  padding: 5px;
+}
 /* dark mode */
 
-body.dark-mode{
+body.dark-mode {
   background-color: var(--Very-Dark-Blue);
 }
 
-.header.dark-mode{
+.header.dark-mode {
   background-color: var(--Dark-Blue);
   color: #eee;
   border-bottom: 1px solid #333;
@@ -132,8 +199,10 @@ body.dark-mode{
 
 .search-container.dark-mode,
 .country.country-dark,
-.filter.filter-dark,.sort.dark-mode,
-.subregion-filter.dark-mode{
+.filter.filter-dark,
+.sort.dark-mode,
+.subregion-filter.dark-mode,
+.detail-container.dark-mode {
   background-color: var(--Dark-Blue);
   color: #eee;
   border: 1px solid #333;
@@ -141,7 +210,62 @@ body.dark-mode{
 .search-input.dark-mode,
 .filter-select.filter-select-dark,
 .sort-container.dark-mode,
-.filter-subregion.dark-mode{ 
+.filter-subregion.dark-mode {
   background-color: var(--Dark-Blue);
   color: #eee;
+}
+
+.btn.dark-mode {
+  background-color: var(--Very-Dark-Blue);
+  border: none;
+  color: var(--White);
+}
+
+.border-countries.dark-mode div {
+  background-color: var(--Very-Dark-Blue);
+  border: none;
+  color: var(--White);
+}
+
+@media (min-width: 900px) {
+  .search {
+    width: 50%;
+  }
+  .filters {
+    width: 50%;
+    flex-direction: row;
+    margin: 0 0 0 1rem;
+    gap: 30px;
+  }
+
+  .country {
+    max-width: 300px;
+  }
+  
+  .countries {
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-left: 4.5rem;
+  }
+
+  .details-div {
+    display: flex;
+  }
+
+  .country-detail {
+    margin-left: 7rem;
+  }
+
+  .container {
+    display: flex;
+    gap: 40px;
+  }
+
+  .details-div img {
+    width: 40%;
+    height: auto;
+  }
 }

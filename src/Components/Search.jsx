@@ -1,28 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "./ThemeContext";
 
-function Search({ countries,setFilteredCountries }) {
+function Search({inputValue }) {
   const { darkMode } = useTheme();
-  const [inputValue, setInputValue] = useState("");
   
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value.toLowerCase();
-    setInputValue(inputValue);
-    const filtered = countries.filter((country) =>
-      country.name.common.toLowerCase().includes(inputValue)
-    );
-    setFilteredCountries(filtered);
-  };
 
-  const handleKeyPress = (e) => {
-    const inputValue = e.target.value.toLowerCase();
-    if (e.key === "Enter") {
-      const exactMatch = countries.filter(
-        (country) => country.name.common.toLowerCase() === inputValue
-      );
-      setFilteredCountries(exactMatch);
-    }
-  };
+  const handleInputChange = (e) => {
+    inputValue(e.target.value)
+  }
+
   return (
     <div>
       <div className={darkMode ? "search dark-mode" : "search"}>
@@ -36,9 +22,7 @@ function Search({ countries,setFilteredCountries }) {
             type="text"
             placeholder="Search for a country..."
             className={darkMode ? "search-input dark-mode" : "search-input"}
-            value={inputValue}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyPress}
+            onChange={(e)=>handleInputChange(e)}
           />
         </div>
       </div>

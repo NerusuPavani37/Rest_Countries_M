@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { useTheme } from './ThemeContext';
 import Countries from './Countries';
 
-function Filters({countriesData,regions}) {
+function Filters({countriesData,regions,inputValue}) {
   const {darkMode}=useTheme();
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedSubregion, setSelectedSubregion] = useState("");
@@ -43,6 +43,8 @@ function Filters({countriesData,regions}) {
   
   return (
     <>
+    <div className='filters'>
+
     <div className={darkMode ? "filter filter-dark" : "filter"}>
     <select
       id="filter-select"
@@ -107,11 +109,13 @@ function Filters({countriesData,regions}) {
         <option value="area_desc">Area High to Low</option>
       </select>
     </div>
+    </div>
 
     <div>
     <Countries countries={sortedCountries.length > 0 ? sortedCountries : countriesData} 
                selectedRegion={selectedRegion}
                selectedSubregion={selectedSubregion}
+               inputValue={inputValue}
       />
 
     </div>
