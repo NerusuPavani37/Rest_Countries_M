@@ -131,6 +131,12 @@ header ion-icon {
 .country-details {
   padding-left: 2rem;
 }
+.country-details p{
+  font-weight: 600;
+}
+.country-details span{
+  font-weight: 100;
+}
 
 /* Deatil-page styling */
 

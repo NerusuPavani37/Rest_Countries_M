@@ -27,7 +27,7 @@ function Filters({countriesData,regions,inputValue}) {
     setSortedCountries(sortedCountries);
   };
 
-  const subRegions = countriesData?.reduce((acc, curr) => {
+  const subRegions = countriesData.reduce((acc, curr) => {
     if (selectedRegion && selectedRegion === curr.region) {
       if(!acc.includes(curr.subregion)){
         acc.push(curr.subregion);

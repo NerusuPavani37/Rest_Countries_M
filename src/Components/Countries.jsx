@@ -11,21 +11,19 @@ function Countries({
   console.log(selectedSubregion);
   const { darkMode } = useTheme();
  
-  let filteredeData = countries.filter((country) => {
-    return (
-      (!inputValue ||
-        country.name.common.toLowerCase().includes(inputValue.toLowerCase())) &&
-      (!selectedRegion || selectedRegion === country.region) &&
-      (!selectedSubregion || selectedSubregion === country.subregion)
-    );
+  let filteredData = countries.filter((country) => {
+     const matchesInput = (!inputValue || country.name.common.toLowerCase().includes(inputValue.toLowerCase()));
+     const matchesRegion = (!selectedRegion || selectedRegion === country.region);
+     const matchesSubregion = (!selectedSubregion || selectedSubregion === country.subregion);
+     return matchesInput && matchesRegion && matchesSubregion;
   });
 
   return (
     <div className="countries">
-      {filteredeData.length === 0 ? (
+      {filteredData.length === 0 ? (
         <h1>No such country</h1>
       ) : (
-        filteredeData.map((country) => (
+        filteredData.map((country) => (
           <Link
             key={country.cca3}
             to={`country/${country.cca3}`}
@@ -42,10 +40,9 @@ function Countries({
               />
               <div className="country-details">
                 <h2>{country.name.common}</h2>
-                <p>Population: {country.population}</p>
-                <p>Region: {country.region}</p>
-                <p>Subregion: {country.subregion}</p>
-                <p>Capital: {country.capital}</p>
+                <p>Population: <span>{country.population}</span> </p>
+                <p>Region: <span>{country.region}</span> </p>
+                <p>Capital: <span>{country.capital}</span> </p>
               </div>
             </div>
           </Link>
